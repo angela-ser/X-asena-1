@@ -10,7 +10,7 @@ const { OWNER_NAME, BOT_NAME } = require("../config");
 const { hostname, uptime } = require("os");
 command(
   {
-    pattern: "1menu",
+    pattern: "menu",
     fromMe: isPrivate,
     desc: "Show All commands",
     dontAddCommandList: true,
