@@ -76,7 +76,8 @@ let comad = cmnd.filter(({ type }) => type == cmmd);
     });
 
     menu += ` ╰━━━━━━━━━━━──⊷\n`
-   {
+    
+    menu += {
         image: { url: `https://wallpapercave.com/wp/wp3891779.jpg` },
         caption: menu,
         footer: tiny(
