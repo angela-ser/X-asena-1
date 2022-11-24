@@ -94,11 +94,11 @@ async function Xasena() {
         }
       });
       console.log("✅ Plugins Installed!");
-      let str = `\`\`\`HyNO connected \nversion : ${
+      let str = `\`\`\`HyNO connected✅ \nversion : ${
         require(__dirname + "/package.json").version
       }\nTotal Plugins : ${events.commands.length}\nWorktype: ${
         config.WORK_TYPE
-      }\n█░█ █▄█ █▄░█ █▀█░
+      }\n\n\n█░█ █▄█ █▄░█ █▀█░
 █▀█ ░█░ █░▀█ █▄█░\`\`\``;
       conn.sendMessage(conn.user.id, { text: str });
 
