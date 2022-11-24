@@ -199,4 +199,3 @@ ${
           ],
           mentions: parseJid(str),
         });
-);
