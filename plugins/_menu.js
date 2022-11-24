@@ -11,7 +11,7 @@ const { hostname, uptime } = require("os");
 command(
   {
     pattern: "menu",
-    fromMe: isPrivate,
+    fromMe: true,
     desc: "Show All commands",
     dontAddCommandList: true,
   },
@@ -27,12 +27,11 @@ Description : ${i.desc}\`\`\``
     } else {
       let { prefix } = message;
       let [date, time] = new Date()
-        .toLocaleString("en-IN", { timeZone: "Asia/Kolkata" })
+        .toLocaleString("en-IR", { timeZone: "Asia/Tehran" })
         .split(",");
       let menu = `╭━━━━━ᆫ ${BOT_NAME} ᄀ━━━
 ┃ ⎆  *OWNER* :  ${OWNER_NAME}
 ┃ ⎆  *PREFIX* : ${prefix}
-┃ ⎆  *HOST NAME* :${hostname().split("-")[0]}
 ┃ ⎆  *DATE* : ${date}
 ┃ ⎆  *TIME* : ${time}
 ┃ ⎆  *COMMANDS* : ${events.commands.length} 
@@ -82,16 +81,16 @@ let comad = cmnd.filter(({ type }) => type == cmmd);
         image: { url: `https://wallpapercave.com/wp/wp3891779.jpg` },
         caption: menu,
         footer: tiny(
-          `X-asena Public Bot\nVersion : ${require("../package.json").version}`
+          `HyNO MD\nGITHUB:https://github.com/HyNO-IR`
         ),
         buttons: [
           {
             buttonId: `${prefix}ping`,
-            buttonText: { displayText: serif_B("PING 🎈") },
+            buttonText: { displayText: serif_B("PING") },
           },
           {
             buttonId: `${prefix}list`,
-            buttonText: { displayText: serif_B("LIST 🎈 ") },
+            buttonText: { displayText: serif_B("LIST") },
           },
         ],
       });
@@ -107,7 +106,7 @@ X-Asena - X-Electra
 command(
   {
     pattern: "list",
-    fromMe: isPrivate,
+    fromMe: true,
     desc: "Show All commands",
     dontAddCommandList: true,
   },
