@@ -97,7 +97,6 @@ let comad = cmnd.filter(({ type }) => type == cmmd);
             buttonText: { displayText: serif_B("SUPPORT") },
           },
         ],
-        ],
       });
     }
   }
