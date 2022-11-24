@@ -27,7 +27,7 @@
     "HANDLERS": {
       "description": "prefix for commands, enter false for no prefix",
       "required": true,
-      "value": ","
+      "value": "."
     },
     "LOGS": {
       "description": "need to show message logs ?",
