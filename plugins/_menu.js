@@ -10,8 +10,8 @@ const { OWNER_NAME, BOT_NAME } = require("../config");
 const { hostname, uptime } = require("os");
 command(
   {
-    pattern: "menu",
-    fromMe: true,
+    pattern: "1menu",
+    fromMe: isPrivate,
     desc: "Show All commands",
     dontAddCommandList: true,
   },
@@ -27,11 +27,12 @@ Description : ${i.desc}\`\`\``
     } else {
       let { prefix } = message;
       let [date, time] = new Date()
-        .toLocaleString("en-IN", { timeZone: "Asia/Tehran" })
+        .toLocaleString("en-IN", { timeZone: "Asia/Kolkata" })
         .split(",");
       let menu = `╭━━━━━ᆫ ${BOT_NAME} ᄀ━━━
 ┃ ⎆  *OWNER* :  ${OWNER_NAME}
 ┃ ⎆  *PREFIX* : ${prefix}
+┃ ⎆  *HOST NAME* :${hostname().split("-")[0]}
 ┃ ⎆  *DATE* : ${date}
 ┃ ⎆  *TIME* : ${time}
 ┃ ⎆  *COMMANDS* : ${events.commands.length} 
@@ -76,28 +77,24 @@ let comad = cmnd.filter(({ type }) => type == cmmd);
     });
 
     menu += ` ╰━━━━━━━━━━━──⊷\n`
-    
-    menu += {
+    menu += `_🔖Send ${prefix}menu <command name> to get detailed information of specific command._\n*📍Eg:* _${prefix}menu plugin_`;
+      return await message.client.sendMessage(message.jid, {
         image: { url: `https://wallpapercave.com/wp/wp3891779.jpg` },
         caption: menu,
         footer: tiny(
-          `HyNO MD\nGITHUB:https://github.com/HyNO-IR}`
+          `X-asena Public Bot\nVersion : ${require("../package.json").version}`
         ),
         buttons: [
           {
             buttonId: `${prefix}ping`,
-            buttonText: { displayText: serif_B("PING") },
+            buttonText: { displayText: serif_B("PING 🎈") },
           },
           {
             buttonId: `${prefix}list`,
-            buttonText: { displayText: serif_B("LIST") },
-          },
-            {
-            buttonId: `${prefix}support`,
-            buttonText: { displayText: serif_B("SUPPORT") },
+            buttonText: { displayText: serif_B("LIST 🎈 ") },
           },
         ],
-      };
+      });
     }
   }
 );
@@ -110,7 +107,7 @@ X-Asena - X-Electra
 command(
   {
     pattern: "list",
-    fromMe: true,
+    fromMe: isPrivate,
     desc: "Show All commands",
     dontAddCommandList: true,
   },
