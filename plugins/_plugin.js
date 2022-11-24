@@ -7,19 +7,19 @@ const { PluginDB, installPlugin } = require("../lib/database/plugins");
 
 command(
   {
-    pattern: "install",
+    pattern: "plugin",
     fromMe: true,
     desc: "Installs External plugins",
     type: "user",
   },
   async (message, match) => {
-    if (!match) return await message.sendMessage("_Send a plugin url_");
+    if (!match) return await message.sendMessage("_Need plugin url_");
 
     try {
       var url = new URL(match);
     } catch (e) {
       console.log(e);
-      return await message.sendMessage("_Invalid Url_");
+      return await message.sendMessage("_Invalid plugin Url_");
     }
 
     if (url.host === "gist.github.com") {
@@ -46,7 +46,7 @@ command(
 
       await installPlugin(url, plugin_name);
 
-      await message.sendMessage(`_New plugin installed : ${plugin_name}_`);
+      await message.sendMessage(`_plugin installed : ${plugin_name}_`);
     }
   }
 );
@@ -59,7 +59,7 @@ command(
     var mesaj = "";
     var plugins = await PluginDB.findAll();
     if (plugins.length < 1) {
-      return await message.sendMessage("_No external plugins installed_");
+      return await message.sendMessage("_No plugins installed_");
     } else {
       plugins.map((plugin) => {
         mesaj +=
