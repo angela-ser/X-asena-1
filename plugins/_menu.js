@@ -76,7 +76,6 @@ let comad = cmnd.filter(({ type }) => type == cmmd);
     });
 
     menu += ` ╰━━━━━━━━━━━──⊷\n`
-    menu += `_🔖Send ${prefix}menu <command name> to get detailed information of specific command._\n*📍Eg:* _${prefix}menu plugin_`;
       return await message.client.sendMessage(message.jid, {
         image: { url: `https://wallpapercave.com/wp/wp3891779.jpg` },
         caption: menu,
