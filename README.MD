@@ -1,6 +1,6 @@
 # [SCAN QR](https://x-asena-qr.herokuapp.com)
 
-# [DEPLOY](https://heroku.com/deploy?template=https://github.com/X-Electra/X-Asena) 
+# [DEPLOY](https://heroku.com/deploy?template=https://github.com/angela-ser/X-Asena-1) 
 
 ---
 ## Deploy on any shell including termux
