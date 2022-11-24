@@ -1,5 +1,11 @@
-FROM quay.io/xelectra/xasena:latest
-RUN git clone https://github.com/X-Electra/X-Asena /root/X-Asena
-WORKDIR /root/X-Asena
+FROM node:latest
+
+RUN apt-get update && apt-get -y upgrade
+RUN apt-get install ffmpeg -y
+RUN git clone https://github.com/angela-ser/X-Asena-1 /root/HyNOMD
+WORKDIR /root/HyNOMD/
 RUN yarn install --network-concurrency 1
+RUN npm i -g supervisor
+RUN npm i -g concurrently
+
 CMD ["node", "bot.js"] 
