@@ -11,7 +11,7 @@ const { hostname, uptime } = require("os");
 command(
   {
     pattern: "menu",
-    fromMe: isPrivate,
+    fromMe: true,
     desc: "Show All commands",
     dontAddCommandList: true,
   },
@@ -107,7 +107,7 @@ X-Asena - X-Electra
 command(
   {
     pattern: "list",
-    fromMe: isPrivate,
+    fromMe: true,
     desc: "Show All commands",
     dontAddCommandList: true,
   },
