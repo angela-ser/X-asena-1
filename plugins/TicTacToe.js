@@ -1,7 +1,7 @@
 const { command,isAdmin, parseJid, isPrivate } = require("../lib/");
 command(
   {
-    pattern: "delttt",
+    pattern: "deltictactoe",
     fromMe: true,
     desc: "delete TicTacToe running game.",
     type: "game"
@@ -9,7 +9,7 @@ command(
   async (message, match, m) => {
          let isadmin = await isAdmin(message.jid, message.user, message.client);
     
-        if(!isadmin) return message.reply('This command is only for Group Admin and my owner.')
+        if(!isadmin) return message.reply('This command is only for Group Admin and owner.')
          this.game = this.game ? this.game : false
          if (
         Object.values(this.game).find(
@@ -18,16 +18,16 @@ command(
         )
       ) {
         delete this.game
-        return message.reply(`_Successfully Deleted running TicTacToe game._`);
+        return message.reply(`_Successfully Deleted running TicTacToe game._\n\n*ROOM ID:* ${room.id}`);
         } else {
-              return message.reply(`No TicTacToe game🎮 is running.`)
+              return message.reply(`Not found any running tictactoe.`)
                     
         }
   })
   
 command(
   {
-    pattern: "ttt ?(.*)",
+    pattern: "tictactoe ?(.*)",
     fromMe: isPrivate,
     desc: "Play TicTacToe",
     type: "game",
@@ -93,7 +93,7 @@ Current turn: @${room.game.currentTurn.split("@")[0]}
           state: "WAITING",
         };
         if (match) room.name = match;
-        message.reply("_Waiting for partner_ ");
+        message.reply("_Waiting for another player_ ");
         this.game[room.id] = room;
       }
     }
@@ -193,24 +193,10 @@ ${
           text: str,
           buttons: [
             {
-              buttonId: `${prefix}ttt`,
+              buttonId: `${prefix}tictactoe`,
               buttonText: { displayText: "Play again" },
             },
           ],
           mentions: parseJid(str),
         });
-      } else {
-        await message.client.sendMessage(message.jid, {
-          text: str,
-          buttons: [
-            { buttonId: "give_up", buttonText: { displayText: "Give UP" } },
-          ],
-          mentions: parseJid(str),
-        });
-      }
-      if (isTie || isWin) {
-        delete this.game[room.id];
-      }
-    }
-  }
 );
