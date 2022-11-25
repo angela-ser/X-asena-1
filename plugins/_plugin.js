@@ -7,7 +7,7 @@ const { PluginDB, installPlugin } = require("../lib/database/plugins");
 
 command(
   {
-    pattern: "plugin",
+    pattern: "install",
     fromMe: true,
     desc: "Installs External plugins",
     type: "user",
