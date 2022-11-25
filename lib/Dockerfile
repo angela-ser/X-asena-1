@@ -12,4 +12,4 @@ CMD ["node", "bot.js"]
 
 
 
--------------Dockerfile by HyNO🔐-------------
+#-------------Dockerfile by HyNO🔐-------------#
