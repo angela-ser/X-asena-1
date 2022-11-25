@@ -11,6 +11,5 @@ RUN npm i -g concurrently
 CMD ["node", "bot.js"] 
 
 
-/* 
-Dockerfile by HyNO🔐
-*/
+
+-------------Dockerfile by HyNO🔐-------------
